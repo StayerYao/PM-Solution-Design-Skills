@@ -22,17 +22,21 @@ Stayer 的实验工具，用于增强 Claude Code 的能力，干掉你团队的
 
 ## 安装
 
-将对应 skill 目录复制到 `~/.claude/skills/` 下即可：
+### 方式一：通过 Marketplace 插件安装（推荐）
 
 ```bash
-# 克隆仓库
-git clone https://github.com/StayerYao/claude-skills.git
+# 1. 添加 marketplace
+/plugin marketplace add StayerYao/marketplace
 
-# 复制单个 skill
-cp -r claude-skills/pm-solution-design ~/.claude/skills/
+# 2. 安装插件
+/plugin install pm-solution-design@stayer-marketplace
+```
 
-# 或复制全部
-cp -r claude-skills/* ~/.claude/skills/
+### 方式二：手动复制
+
+```bash
+git clone https://github.com/StayerYao/PM-Solution-Design-Skills.git
+cp -r PM-Solution-Design-Skills/skills/pm-solution-design ~/.claude/skills/
 ```
 
 ## License
