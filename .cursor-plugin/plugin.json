@@ -1,8 +1,8 @@
 {
   "name": "pm-solution-design",
   "displayName": "PM Solution Design",
-  "description": "结构化 PRD 输出 — 四道门禁驱动需求从模糊到可执行",
-  "version": "1.0.0",
+  "description": "结构化 PRD 输出 — 四道门禁 + 灵感碰撞 + 取舍声明，驱动需求从模糊到出色",
+  "version": "1.1.0",
   "author": {
     "name": "Stayer",
     "email": "stayer@users.noreply.github.com"
