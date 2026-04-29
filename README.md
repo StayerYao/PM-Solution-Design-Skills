@@ -2,7 +2,7 @@
 
 by Stayer
 
-Stayer 的实验工具，用于增强 Claude Code 的能力，干掉你团队的那个产品经理。
+Stayer 的实验工具，用于增强 AI Coding Agent 的能力，干掉你团队的那个产品经理。
 
 ## Skills
 
@@ -22,22 +22,38 @@ Stayer 的实验工具，用于增强 Claude Code 的能力，干掉你团队的
 
 ## 安装
 
-### 方式一：通过 Marketplace 插件安装（推荐）
+### Claude Code
 
 ```bash
-# 1. 添加 marketplace
+# 方式一：通过 Marketplace（推荐）
 /plugin marketplace add StayerYao/marketplace
-
-# 2. 安装插件
 /plugin install pm-solution-design@stayer-marketplace
-```
 
-### 方式二：手动复制
-
-```bash
+# 方式二：手动复制
 git clone https://github.com/StayerYao/PM-Solution-Design-Skills.git
 cp -r PM-Solution-Design-Skills/skills/pm-solution-design ~/.claude/skills/
 ```
+
+### Cursor
+
+在项目根目录克隆此仓库，Cursor 会自动识别 `.cursor-plugin/plugin.json`。
+
+### Codex
+
+在项目根目录克隆此仓库，Codex 会自动识别 `.codex-plugin/plugin.json`。
+
+### Gemini CLI
+
+在项目根目录克隆此仓库，Gemini CLI 会自动识别 `gemini-extension.json` 和 `GEMINI.md`。
+
+## 支持平台
+
+| 平台 | 配置文件 | 状态 |
+|------|----------|------|
+| Claude Code | `.claude-plugin/plugin.json` | ✅ |
+| Cursor | `.cursor-plugin/plugin.json` | ✅ |
+| Codex | `.codex-plugin/plugin.json` | ✅ |
+| Gemini CLI | `gemini-extension.json` + `GEMINI.md` | ✅ |
 
 ## License
 

@@ -1,0 +1,19 @@
+{
+  "name": "pm-solution-design",
+  "description": "结构化 PRD 输出 Skill — 通过四道门禁（问题清晰 → 方案闭环 → 可执行契约 → 代价评估）驱动需求从模糊到可执行",
+  "version": "1.0.0",
+  "author": {
+    "name": "Stayer",
+    "email": "stayer@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/StayerYao/PM-Solution-Design-Skills",
+  "repository": "https://github.com/StayerYao/PM-Solution-Design-Skills",
+  "license": "MIT",
+  "keywords": [
+    "PRD",
+    "product",
+    "requirements",
+    "skills",
+    "workflow"
+  ]
+}
