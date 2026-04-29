@@ -1,6 +1,8 @@
 # Claude Skills
 
-自定义 Claude Code Skills 集合，用于增强 Claude Code 的能力。
+by Stayer
+
+Stayer 的实验工具，用于增强 Claude Code 的能力，干掉你团队的那个产品经理。
 
 ## Skills
 
