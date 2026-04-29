@@ -1,4 +1,4 @@
-# Claude Skills
+# PM Solution Design Skills
 
 by Stayer
 
