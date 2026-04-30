@@ -1,18 +1,6 @@
 ---
 name: pm-solution-design
-description: Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development.
-triggers:
-  - PRD
-  - 需求文档
-  - 产品方案
-  - 写PRD
-  - 出方案
-  - 需求模糊
-  - 方案不清
-  - 功能规划
-  - 新功能设计
-  - 灵感碰撞
-  - 取舍
+description: "Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development. Triggers: PRD, 需求文档, 产品方案, 写PRD, 出方案, 需求模糊, 方案不清, 功能规划, 新功能设计, 灵感碰撞, 取舍"
 ---
 
 # PM Solution Design
