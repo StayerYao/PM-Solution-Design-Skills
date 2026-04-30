@@ -1,5 +1,14 @@
 # 更新日志
 
+## v1.2.1（2026-04-30）
+
+### 修复
+
+- **SKILL.md description**：triggers 关键词重新合并回 description 字段，确保各平台文本匹配和 skill 自动触发正常工作
+- **GEMINI.md / AGENTS.md**：恢复 `@./skills/pm-solution-design/SKILL.md` 引用，修复 Gemini CLI 和 Codex 平台上 skill 内容无法自动注入上下文的问题
+
+---
+
 ## v1.2.0（2026-04-30）
 
 ### 新增

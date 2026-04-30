@@ -2,7 +2,7 @@
   "name": "pm-solution-design",
   "displayName": "PM Solution Design",
   "description": "Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Stayer",
     "email": "stayer@users.noreply.github.com"
