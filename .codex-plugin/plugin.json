@@ -1,7 +1,7 @@
 {
   "name": "pm-solution-design",
-  "version": "1.1.0",
-  "description": "结构化 PRD 输出 — 四道门禁 + 灵感碰撞 + 取舍声明，驱动需求从模糊到出色",
+  "version": "1.2.0",
+  "description": "Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development.",
   "author": {
     "name": "Stayer",
     "url": "https://github.com/StayerYao"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "PM Solution Design",
-    "shortDescription": "结构化 PRD 输出，四道门禁驱动需求清晰化",
-    "longDescription": "通过四道门禁（问题清晰 → 方案闭环 → 可执行契约 → 代价评估）驱动结构化 PRD 产出。适用于新功能/新产品需求梳理、需求模糊需澄清、复杂业务规则需梳理等场景。",
+    "shortDescription": "Structured PRD output driven by four gates",
+    "longDescription": "Drive structured PRD output through four gates (problem clarity → solution closure → executable contract → cost assessment). Use when starting a new feature or product initiative, or when requirements are ambiguous and need clarification.",
     "developerName": "Stayer",
     "category": "Productivity",
     "capabilities": [

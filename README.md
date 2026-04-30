@@ -2,7 +2,7 @@
 
 by Stayer
 
-Stayer 的实验工具，用于增强 AI Coding Agent 的能力，干掉你团队的那个产品经理。
+结构化 PRD 输出 Skill — 通过四道门禁 + 灵感碰撞 + 取舍声明驱动需求从模糊到出色。
 
 ## Skills
 
@@ -48,11 +48,11 @@ cp -r PM-Solution-Design-Skills/skills/pm-solution-design ~/.claude/skills/
 
 ### Cursor
 
-在项目根目录克隆此仓库，Cursor 会自动识别 `.cursor-plugin/plugin.json`。
+在项目根目录克隆此仓库，Cursor 会自动识别 `.cursor-plugin/plugin.json` 和 `.cursorrules`。
 
 ### Codex
 
-在项目根目录克隆此仓库，Codex 会自动识别 `.codex-plugin/plugin.json`。
+在项目根目录克隆此仓库，Codex 会自动识别 `.codex-plugin/plugin.json` 和 `AGENTS.md`。
 
 ### Gemini CLI
 
@@ -60,12 +60,46 @@ cp -r PM-Solution-Design-Skills/skills/pm-solution-design ~/.claude/skills/
 
 ## 支持平台
 
-| 平台 | 配置文件 | 状态 |
-|------|----------|------|
-| Claude Code | `.claude-plugin/plugin.json` | ✅ |
-| Cursor | `.cursor-plugin/plugin.json` | ✅ |
-| Codex | `.codex-plugin/plugin.json` | ✅ |
-| Gemini CLI | `gemini-extension.json` + `GEMINI.md` | ✅ |
+| 平台 | 配置文件 | 上下文入口 | 状态 |
+|------|----------|-----------|------|
+| Claude Code | `.claude-plugin/plugin.json` | `CLAUDE.md` | ✅ |
+| Cursor | `.cursor-plugin/plugin.json` | `.cursorrules` | ✅ |
+| Codex | `.codex-plugin/plugin.json` | `AGENTS.md` | ✅ |
+| Gemini CLI | `gemini-extension.json` + `GEMINI.md` | `GEMINI.md` | ✅ |
+
+## 项目结构
+
+```
+├── CLAUDE.md                          # Claude Code 上下文入口
+├── GEMINI.md                          # Gemini CLI 上下文入口
+├── AGENTS.md                          # Codex 上下文入口
+├── .cursorrules                       # Cursor 上下文入口
+├── .claude-plugin/plugin.json         # Claude Code 插件配置
+├── .cursor-plugin/plugin.json         # Cursor 插件配置
+├── .codex-plugin/plugin.json          # Codex 插件配置
+├── gemini-extension.json              # Gemini CLI 扩展配置
+├── package.json
+├── skills/
+│   └── pm-solution-design/
+│       ├── SKILL.md                   # 主流程与核心原则
+│       ├── prd-template.md            # PRD 输出模板
+│       ├── example-prd.md             # 示例 PRD
+│       └── references/
+│           ├── detail-overview.md     # 角色设定与门禁总览
+│           ├── gate-1-problem-clarity.md
+│           ├── ideation.md            # 灵感碰撞流程
+│           ├── trade-off-model.md     # 取舍声明模型
+│           ├── gate-2-solution-closure.md
+│           ├── gate-3-executable-contract.md
+│           ├── gate-4-cost-assessment.md
+│           ├── output-format.md       # 输出格式规范
+│           ├── anti-patterns.md       # 常见合理化借口
+│           └── evaluations.md         # 评估场景
+└── evals/                             # 可运行的评估脚本
+    ├── run-eval.sh
+    ├── scenarios/                     # 评估场景定义
+    └── checkers/                      # 输出合规检查器
+```
 
 ## License
 

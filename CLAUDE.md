@@ -4,14 +4,20 @@
 
 ## 使用方式
 
-Gemini CLI 会自动识别本仓库的 `gemini-extension.json` 和 `GEMINI.md`。当你的需求涉及 PRD、需求文档、产品方案、写PRD、出方案、需求模糊、方案不清、功能规划、新功能设计、灵感碰撞、取舍时，使用 `activate_skill` 工具加载 `pm-solution-design` Skill。
+加载 Skill：
+
+```
+/skill pm-solution-design
+```
+
+或当你提到 PRD、需求文档、产品方案、写PRD、出方案、需求模糊、方案不清、功能规划、新功能设计、灵感碰撞、取舍 时，Skill 会自动触发。
 
 ## 参考文档
 
 | 文件 | 用途 | 何时加载 |
 |------|------|---------|
 | `skills/pm-solution-design/SKILL.md` | 主流程与核心原则 | 自动加载 |
-| `skills/pm-solution-design/references/detail-overview.md` | 角色设定与门禁总览 | 中等/复杂需求 |
+| `skills/pm-solution-design/references/detail-overview.md` | 角色设定与门禁失败处理 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/gate-1-problem-clarity.md` | 门禁一检查点 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/ideation.md` | 灵感碰撞流程 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/trade-off-model.md` | 取舍声明模型 | 中等/复杂需求 |

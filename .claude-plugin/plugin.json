@@ -1,7 +1,7 @@
 {
   "name": "pm-solution-design",
-  "description": "结构化 PRD 输出 Skill — 通过四道门禁 + 灵感碰撞 + 取舍声明驱动需求从模糊到出色",
-  "version": "1.1.0",
+  "description": "Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development.",
+  "version": "1.2.0",
   "author": {
     "name": "Stayer",
     "email": "stayer@users.noreply.github.com"

@@ -1,9 +1,21 @@
 ---
 name: pm-solution-design
-description: Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development. Triggers: PRD, 需求文档, 产品方案, 写PRD, 出方案, 需求模糊, 方案不清, 功能规划, 新功能设计, 灵感碰撞, 取舍
+description: Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development.
+triggers:
+  - PRD
+  - 需求文档
+  - 产品方案
+  - 写PRD
+  - 出方案
+  - 需求模糊
+  - 方案不清
+  - 功能规划
+  - 新功能设计
+  - 灵感碰撞
+  - 取舍
 ---
 
-# PM Gated PRD（指挥塔）
+# PM Solution Design
 
 ## 何时用/何时不用
 
@@ -26,11 +38,11 @@ description: Use when starting a new feature or product initiative that needs a 
 
 | 复杂度 | 特征 | 策略 |
 |--------|------|------|
-| **简单** | 单一流程、少量状态、无复杂规则 | 快速通过四门禁，不加载 detail.md |
-| **中等** | 多流程、有状态管理、含条件逻辑 | 逐项确认，Read `references/detail.md` |
-| **复杂** | 多实体、复杂状态机、有规则引擎抽象空间 | 充分展开，Read `references/detail.md` |
+| **简单** | 单一流程、少量状态、无复杂规则 | 快速通过四门禁，不加载参考文件 |
+| **中等** | 多流程、有状态管理、含条件逻辑 | 逐项确认，按需 Read 对应 `references/` 文件 |
+| **复杂** | 多实体、复杂状态机、有规则引擎抽象空间 | 充分展开，按需 Read 对应 `references/` 文件 |
 
-> 中等/复杂时，Read `references/detail.md` 获取完整检查清单和反模式库。
+> 中等/复杂时，先 Read `references/detail-overview.md`（角色设定与门禁总览），再按当前门禁 Read 对应文件。
 
 ## 门禁全景
 
@@ -53,7 +65,7 @@ description: Use when starting a new feature or product initiative that needs a 
 **核心问题：** 为什么做？做什么/不做什么？成功指标是什么？
 **通过标准：** 能否一句话复述用户问题且用户确认？
 
-> 详细检查点见 `references/detail.md §门禁一`
+> 详细检查点见 `references/gate-1-problem-clarity.md`
 
 ### 灵感碰撞
 
@@ -67,21 +79,21 @@ description: Use when starting a new feature or product initiative that needs a 
    - **简化检验**：能否用更简单的方式达到同样的效果？
 3. 给出判定：**纳入**（写入 PRD）/ **搁置**（记录理由和回访触发器）/ **淘汰**（说明为何不值得）
 
-> 详细示例见 `references/detail.md §灵感碰撞`
+> 详细流程与示例见 `references/ideation.md`，取舍模型见 `references/trade-off-model.md`
 
 ### 门禁二：方案闭环（软）
 
 **核心问题：** 有没有遗漏的路径？每条操作路径都有定义吗？
 **通过标准：** 是否存在一条用户操作路径，系统行为未定义？
 
-> 详细检查点、状态流转方法、规则编排展开见 `references/detail.md §门禁二`
+> 详细检查点、状态流转方法、规则编排展开见 `references/gate-2-solution-closure.md`
 
 ### 门禁三：可执行契约（硬）
 
 **核心问题：** 研发能直接开工吗？验收标准有无主观词？
 **通过标准：** 验收标准中是否含有主观词？若有必须替换。
 
-> 详细检查点、GUI 交互要求见 `references/detail.md §门禁三`
+> 详细检查点、GUI 交互要求见 `references/gate-3-executable-contract.md`
 
 ### 门禁四：代价评估（软）
 
@@ -89,7 +101,7 @@ description: Use when starting a new feature or product initiative that needs a 
 **通过标准：** 评估框架完整，模块清单覆盖全范围。
 **注意：** 只保留评估框架，具体人天和排期由研发填写。
 
-> 详细检查点见 `references/detail.md §门禁四`
+> 详细检查点见 `references/gate-4-cost-assessment.md`
 
 ## 约束（出现即停）
 
@@ -111,6 +123,6 @@ description: Use when starting a new feature or product initiative that needs a 
 
 ## 输出
 
-所有门禁通过后，按 `prd-template.md` 格式输出 PRD。完整格式规范（callout 约定、标题层级、需求级别标注）见 `references/detail.md §输出格式规范`。
+所有门禁通过后，按 `prd-template.md` 格式输出 PRD。完整格式规范（callout 约定、标题层级、需求级别标注）见 `references/output-format.md`，常见合理化借口见 `references/anti-patterns.md`。
 
 example 参考 `example-prd.md`，评估场景见 `references/evaluations.md`。
