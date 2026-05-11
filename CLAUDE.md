@@ -20,10 +20,12 @@
 | `skills/pm-solution-design/references/detail-overview.md` | 角色设定与门禁失败处理 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/gate-1-problem-clarity.md` | 门禁一检查点 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/ideation.md` | 灵感碰撞流程 | 中等/复杂需求 |
+| `skills/pm-solution-design/references/refinement.md` | 精致打磨流程 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/trade-off-model.md` | 取舍声明模型 | 中等/复杂需求 |
-| `skills/pm-solution-design/references/gate-2-solution-closure.md` | 门禁二检查点 | 中等/复杂需求 |
+| `skills/pm-solution-design/references/gate-2-solution-closure.md` | 门禁二检查点（含品质追问清单） | 中等/复杂需求 |
 | `skills/pm-solution-design/references/gate-3-executable-contract.md` | 门禁三检查点 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/gate-4-cost-assessment.md` | 门禁四检查点 | 中等/复杂需求 |
+| `skills/pm-solution-design/references/quality-review.md` | PRD 品质审查 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/output-format.md` | 输出格式规范 | 中等/复杂需求 |
 | `skills/pm-solution-design/references/anti-patterns.md` | 常见合理化借口 | 中等/复杂需求 |
 | `skills/pm-solution-design/prd-template.md` | PRD 输出模板 | 输出阶段 |

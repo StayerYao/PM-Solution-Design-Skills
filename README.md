@@ -2,13 +2,13 @@
 
 by Stayer
 
-结构化 PRD 输出 Skill — 通过四道门禁 + 灵感碰撞 + 取舍声明驱动需求从模糊到出色。
+结构化 PRD 输出 Skill — 通过四道门禁 + 灵感碰撞 + 精致打磨 + 取舍声明驱动需求从模糊到出色。
 
 ## Skills
 
 ### pm-solution-design
 
-产品经理 PRD 输出 Skill — 通过四道门禁 + 灵感碰撞 + 取舍声明，驱动需求从模糊到出色。
+产品经理 PRD 输出 Skill — 通过四道门禁 + 灵感碰撞 + 精致打磨 + 取舍声明，驱动需求从模糊到出色。
 
 **适用场景：** 新功能/新产品需结构化 PRD、需求模糊需澄清、复杂业务规则需梳理
 
@@ -20,16 +20,19 @@ by Stayer
 - 取舍显式 — 每个重大取舍用四元组声明：冲突·选择·放弃·何时重新审视
 - 只定契约 — 描述系统行为，不涉及接口/数据模型/伪代码
 - 可客观验收 — 禁用主观词，必须可测试可度量
+- 品质前置 — 设计阶段的品质上限，实现阶段无法突破
 
 **核心流程：**
 ```
 需求输入 → 复杂度初判
   → 门禁一：问题清晰（硬）
   → 灵感碰撞：PM 输入创造性想法，Skill 作为伙伴打磨或淘汰
-  → 门禁二：方案闭环（软）
-  → 门禁三：可执行契约（硬）
+  → 精致打磨：把设计推到精致
+  → 门禁二：方案闭环（软）— 含品质追问清单
+  → 门禁三：可执行契约（硬）— 含基线约束
   → 门禁四：代价评估（软）
   → 输出 PRD
+  → PRD 品质审查：保真度·一致性·克制·可读性
 ```
 
 ## 安装
@@ -88,10 +91,12 @@ cp -r PM-Solution-Design-Skills/skills/pm-solution-design ~/.claude/skills/
 │           ├── detail-overview.md     # 角色设定与门禁总览
 │           ├── gate-1-problem-clarity.md
 │           ├── ideation.md            # 灵感碰撞流程
+│           ├── refinement.md          # 精致打磨流程
 │           ├── trade-off-model.md     # 取舍声明模型
-│           ├── gate-2-solution-closure.md
+│           ├── gate-2-solution-closure.md  # 门禁二（含品质追问清单）
 │           ├── gate-3-executable-contract.md
 │           ├── gate-4-cost-assessment.md
+│           ├── quality-review.md      # PRD 品质审查
 │           ├── output-format.md       # 输出格式规范
 │           ├── anti-patterns.md       # 常见合理化借口
 │           └── evaluations.md         # 评估场景
