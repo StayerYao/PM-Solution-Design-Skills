@@ -1,5 +1,21 @@
 # 更新日志
 
+## v1.3.4（2026-05-14）
+
+### 修复
+
+- **补齐开源许可证文件**：新增 MIT `LICENSE`，让 README 与插件元数据中的许可证声明具备完整法律文本。
+- **发布前检查加固**：新增 `scripts/check-release.mjs`，检查许可证文件、各平台插件版本号、许可证字段、CHANGELOG 版本条目；发布模式下还会检查工作区是否干净，以及当前提交是否存在对应版本 tag。
+- **版本号统一更新**：新增 `scripts/bump-version.mjs`，统一更新 `package.json`、Claude/Codex/Cursor 插件配置与 Gemini 扩展配置的版本号，降低多平台元数据漏改风险。
+- **评估入口补充发布检查**：`evals/test-eval-suite.sh` 会先执行基础发布元数据检查，再运行固定输出回归测试。
+
+### 文档
+
+- `package.json` 增加 `test`、`check:release`、`version:bump` 命令，明确本地测试、发布检查和版本更新入口。
+- `gemini-extension.json` 补充 `license: MIT`，保持平台元数据一致。
+
+---
+
 ## v1.3.3（2026-05-14）
 
 ### 修复

@@ -18,6 +18,8 @@ for f in evals/scenarios/*.json; do
   python3 -m json.tool "$f" >/dev/null
 done
 
+node scripts/check-release.mjs
+
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P4
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V1
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V2
