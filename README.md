@@ -106,6 +106,22 @@ cp -r PM-Solution-Design-Skills/skills/pm-solution-design ~/.claude/skills/
     └── checkers/                      # 输出合规检查器
 ```
 
+## 本地评估
+
+```bash
+./evals/test-eval-suite.sh
+```
+
+该命令使用 `evals/fixtures/` 中的固定输出验证 runner 计数、checker 规则、JSON 合法性和 shell 语法，不需要调用 Claude。
+
+如需调用真实模型评估：
+
+```bash
+./evals/run-eval.sh
+./evals/run-eval.sh V2
+./evals/run-eval.sh --pressure
+```
+
 ## License
 
 MIT

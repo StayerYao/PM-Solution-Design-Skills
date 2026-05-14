@@ -1,5 +1,30 @@
 # 更新日志
 
+## v1.3.3（2026-05-14）
+
+### 修复
+
+- **评估结果计数修复**：checker 失败时，`evals/run-eval.sh` 现在会把场景计入失败并返回非零退出码，避免失败样例被统计为通过。
+- **macOS Bash 兼容**：移除 Bash 4 专属写法，默认 macOS Bash 3.2 可直接按场景运行评估。
+- **真实 Claude Code 调用兼容**：非 baseline 场景改用 `/pm-solution-design` 加载 Skill，适配当前 Claude Code CLI。
+- **checker 误报修复**：
+  - API checker 区分“拒绝写接口设计”和“实际写入接口设计”。
+  - 主观词 checker 移除 macOS 不支持的 `grep -P`，改为扫描验收标准块。
+  - 工期 checker 避免把“2 天后过期”等非估时表达误判为具体人天。
+  - V1 极简需求 checker 允许“不引入状态机”等负面范围声明。
+
+### 新增
+
+- **固定输出回归测试**：新增 `evals/fixtures/` 正反样例，覆盖 P4、V1、V2、B2 四类核心评估风险。
+- **一键本地评估命令**：新增 `evals/test-eval-suite.sh`，可在不调用真实 Claude 的情况下验证 runner 计数、checker 规则、JSON 合法性和 shell 语法。
+
+### 文档
+
+- README 增加“本地评估”说明。
+- CLAUDE 入口描述补齐“精致打磨”，与 README 和 Skill 主流程保持一致。
+
+---
+
 ## v1.3.2（2026-05-13）
 
 ### 变更

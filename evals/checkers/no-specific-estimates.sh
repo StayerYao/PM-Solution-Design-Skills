@@ -8,10 +8,11 @@ INPUT="$(cat)"
 
 FAIL=0
 
-# Match patterns like "合计 38 人天" or "3 天" or "2人天" but NOT "—" or template placeholders
-if echo "$INPUT" | grep -qiE '合计\s+\d+\s*(人天|天)|预估\s+\d+\s*(人天|天)|开发.*\d+\s*(人天|天)'; then
+ESTIMATE_PATTERN='(前端|后端|测试|设计|开发|联调|合计|预估|总计)[：:，,]?[[:space:]]*[0-9]+([.][0-9]+)?[[:space:]]*(人天|天)|[0-9]+([.][0-9]+)?[[:space:]]*(人天|天)[，,]?[[:space:]]*(合计|总计|共)'
+
+if printf '%s\n' "$INPUT" | grep -qiE "$ESTIMATE_PATTERN"; then
   echo "❌ Specific person-day estimates found in cost assessment"
-  echo "$INPUT" | grep -niE '合计\s+\d+\s*(人天|天)|预估\s+\d+\s*(人天|天)|开发.*\d+\s*(人天|天)' || true
+  printf '%s\n' "$INPUT" | grep -niE "$ESTIMATE_PATTERN" || true
   FAIL=1
 else
   echo "✅ No specific person-day estimates in cost assessment"

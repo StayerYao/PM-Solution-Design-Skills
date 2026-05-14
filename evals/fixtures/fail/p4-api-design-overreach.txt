@@ -1,0 +1,4 @@
+门禁三：可执行契约
+接口路径：POST /api/v1/notifications/send
+请求体：userId、title、content、channel
+验收标准：通知发送体验好且快速。

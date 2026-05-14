@@ -28,6 +28,39 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+scenario_slug() {
+  basename "$1" .json
+}
+
+lowercase() {
+  printf '%s' "$1" | tr '[:upper:]' '[:lower:]'
+}
+
+run_agent_or_fixture() {
+  local scenario_file="$1"
+  local scenario_prompt="$2"
+  local scenario_type="$3"
+  local output_file="$4"
+
+  if [ -n "${PM_EVAL_FIXTURE_DIR:-}" ]; then
+    local slug
+    slug=$(scenario_slug "$scenario_file")
+    local fixture_file="$PM_EVAL_FIXTURE_DIR/$slug.txt"
+    if [ ! -f "$fixture_file" ]; then
+      echo "  Missing fixture: $fixture_file"
+      return 1
+    fi
+    cp "$fixture_file" "$output_file"
+    return 0
+  fi
+
+  if [ "$scenario_type" = "baseline" ]; then
+    echo "$scenario_prompt" | claude --print 2>/dev/null > "$output_file"
+  else
+    printf '/pm-solution-design\n%s\n' "$scenario_prompt" | claude --print 2>/dev/null > "$output_file"
+  fi
+}
+
 run_scenario() {
   local scenario_file="$1"
   local scenario_id
@@ -46,25 +79,27 @@ run_scenario() {
   echo "  Prompt: $scenario_prompt"
   echo ""
 
-  # Build the claude command
-  # For baseline scenarios: run WITHOUT the skill loaded
-  # For pressure/variant scenarios: run WITH the skill loaded
+  # For baseline scenarios: run WITHOUT the skill loaded.
+  # For pressure/variant scenarios: run WITH the skill loaded.
+  # Fixture mode lets checkers run deterministically without invoking claude.
   local output_file="$RESULTS_DIR/${scenario_id}_output.txt"
-  local skill_flag=""
 
   if [ "$scenario_type" = "baseline" ]; then
     echo "  Mode: baseline (no skill)"
-    skill_flag=""
   else
     echo "  Mode: with skill"
-    skill_flag="--skill pm-solution-design"
   fi
 
-  echo "  Running claude..."
-  if [ -n "$skill_flag" ]; then
-    echo "$scenario_prompt" | claude $skill_flag --print 2>/dev/null > "$output_file" || true
+  if [ -n "${PM_EVAL_FIXTURE_DIR:-}" ]; then
+    echo "  Loading fixture from $PM_EVAL_FIXTURE_DIR"
   else
-    echo "$scenario_prompt" | claude --print 2>/dev/null > "$output_file" || true
+    echo "  Running claude..."
+  fi
+
+  if ! run_agent_or_fixture "$scenario_file" "$scenario_prompt" "$scenario_type" "$output_file"; then
+    echo -e "  ${RED}⚠ Failed to produce output${NC}"
+    echo "FAIL" > "$RESULTS_DIR/${scenario_id}_result.txt"
+    return 1
   fi
 
   if [ ! -s "$output_file" ]; then
@@ -95,9 +130,11 @@ run_scenario() {
   if [ "$total_fail" -eq 0 ]; then
     echo -e "  ${GREEN}✅ PASSED ($total_pass checks)${NC}"
     echo "PASS" > "$RESULTS_DIR/${scenario_id}_result.txt"
+    return 0
   else
     echo -e "  ${RED}❌ FAILED ($total_pass passed, $total_fail failed)${NC}"
     echo "FAIL" > "$RESULTS_DIR/${scenario_id}_result.txt"
+    return 1
   fi
 }
 
@@ -119,13 +156,13 @@ done
 SCENARIOS=()
 
 if [ -n "$SPECIFIC" ]; then
-  # Run specific scenario
-  if [ -f "$SCENARIOS_DIR/${SPECIFIC,,}-*.json" ] || [ -f "$SCENARIOS_DIR/${SPECIFIC}-*.json" ]; then
-    SCENARIOS=( "$SCENARIOS_DIR/${SPECIFIC}"-*.json )
-  else
-    # Try lowercase
-    SCENARIOS=( "$SCENARIOS_DIR/$(echo "$SPECIFIC" | tr '[:upper:]' '[:lower:]')"-*.json )
-  fi
+  wanted=$(lowercase "$SPECIFIC")
+  for f in "$SCENARIOS_DIR"/*.json; do
+    slug=$(scenario_slug "$f")
+    case "$slug" in
+      "$wanted"|"$wanted"-*) SCENARIOS+=("$f") ;;
+    esac
+  done
 else
   for f in "$SCENARIOS_DIR"/*.json; do
     if [ -n "$FILTER" ]; then
