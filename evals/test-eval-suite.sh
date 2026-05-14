@@ -23,6 +23,7 @@ node scripts/check-release.mjs
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P4
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V1
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V2
+PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V3
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh B2
 
 if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P4; then
@@ -37,6 +38,11 @@ fi
 
 if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh V2; then
   echo "Expected failing V2 fixture to fail"
+  exit 1
+fi
+
+if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh V3; then
+  echo "Expected failing V3 fixture to fail"
   exit 1
 fi
 

@@ -1,0 +1,12 @@
+# 客户分层 PRD 片段
+
+## 核心业务对象
+
+| 对象 | 字段 | 类型 | 说明 |
+|------|------|------|------|
+| customers | customer_id | bigint | 客户主键 |
+| customers | created_at | datetime | 创建时间 |
+| segment_rules | rule_json | json | 规则配置 |
+| segment_results | result_id | bigint | 分层结果 ID |
+
+数据库表包括 customers、segment_rules、segment_results。
