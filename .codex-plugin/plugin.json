@@ -1,7 +1,7 @@
 {
   "name": "pm-solution-design",
-  "version": "1.4.0",
-  "description": "Use when starting a new feature or product initiative that needs a structured PRD, or when requirements are ambiguous and need clarification before development.",
+  "version": "2.0.0",
+  "description": "Use when starting a product initiative, writing or reviewing a PRD, clarifying ambiguous requirements, planning a feature, or comparing product trade-offs.",
   "author": {
     "name": "Stayer",
     "url": "https://github.com/StayerYao"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "PM Solution Design",
-    "shortDescription": "Structured PRD output driven by four gates + quality refinement",
-    "longDescription": "Drive structured PRD output through four gates (problem clarity → solution closure → executable contract → cost assessment), with quality refinement (state coverage, consistency, restraint review) and PRD quality audit. Use when starting a new feature or product initiative, or when requirements are ambiguous and need clarification.",
+    "shortDescription": "PRD and product solution design driven by a flow engine",
+    "longDescription": "Use pm-solution-design 2.0.0 to clarify product problems, choose output scope, pass G1-G4 gates, and produce a PRD, solution brief, or explicit draft without leaking API, data model, or estimate details.",
     "developerName": "Stayer",
     "category": "Productivity",
     "capabilities": [

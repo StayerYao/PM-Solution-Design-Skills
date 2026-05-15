@@ -1,0 +1,7 @@
+{
+  "id": "scope-no-exceptions",
+  "name": "用户要求不写异常流程时必须保留摘要",
+  "type": "v2",
+  "prompt": "写一个表单提交 PRD，但不要写异常流程。",
+  "coverageBaseline": false
+}

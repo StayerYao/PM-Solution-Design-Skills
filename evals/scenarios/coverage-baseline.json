@@ -1,0 +1,7 @@
+{
+  "id": "coverage-baseline",
+  "name": "五态覆盖与基线约束必须显式存在",
+  "type": "v2",
+  "prompt": "检查 v2 PRD 是否显式覆盖五态、边界品类和执行基线约束。",
+  "coverageBaseline": true
+}

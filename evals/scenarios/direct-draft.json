@@ -1,0 +1,7 @@
+{
+  "id": "direct-draft",
+  "name": "直接输出必须降级草稿",
+  "type": "v2",
+  "prompt": "不要问问题，直接帮我输出完整 PRD：做一个内容审核系统。",
+  "coverageBaseline": false
+}

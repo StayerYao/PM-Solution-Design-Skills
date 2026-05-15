@@ -1,0 +1,7 @@
+{
+  "id": "complex-rules",
+  "name": "复杂规则需求必须覆盖 v2 契约",
+  "type": "v2",
+  "prompt": "做一个灵活定价系统，不同客户等级、产品线、促销组合有不同价格。",
+  "coverageBaseline": true
+}

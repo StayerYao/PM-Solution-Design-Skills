@@ -1,66 +1,33 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$(cd "$(dirname "$0")/.." && pwd)"
 
-cd "$REPO_DIR"
+bash -n evals/run-eval.sh
+bash -n evals/test-eval-suite.sh
+for f in evals/checkers/*.sh; do bash -n "$f"; done
 
-for f in evals/run-eval.sh evals/checkers/*.sh evals/test-eval-suite.sh; do
-  bash -n "$f"
-done
-
-python3 -m json.tool .codex-plugin/plugin.json >/dev/null
+python3 -m json.tool package.json >/dev/null
 python3 -m json.tool .claude-plugin/plugin.json >/dev/null
+python3 -m json.tool .codex-plugin/plugin.json >/dev/null
 python3 -m json.tool .cursor-plugin/plugin.json >/dev/null
 python3 -m json.tool gemini-extension.json >/dev/null
-for f in evals/scenarios/*.json; do
-  python3 -m json.tool "$f" >/dev/null
-done
+for f in evals/scenarios/*.json; do python3 -m json.tool "$f" >/dev/null; done
 
 node scripts/check-release.mjs
+node scripts/check-v2-structure.mjs
 
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P4
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V1
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V2
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V3
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh B2
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P5
-PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P6
+for f in evals/scenarios/*.json; do
+  slug=$(basename "$f" .json)
+  PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh "$slug"
+done
 
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P4; then
-  echo "Expected failing P4 fixture to fail"
-  exit 1
-fi
-
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh V1; then
-  echo "Expected failing V1 fixture to fail"
-  exit 1
-fi
-
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh V2; then
-  echo "Expected failing V2 fixture to fail"
-  exit 1
-fi
-
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh V3; then
-  echo "Expected failing V3 fixture to fail"
-  exit 1
-fi
-
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh B2; then
-  echo "Expected failing B2 fixture to fail"
-  exit 1
-fi
-
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P5; then
-  echo "Expected failing P5 fixture to fail"
-  exit 1
-fi
-
-if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P6; then
-  echo "Expected failing P6 fixture to fail"
-  exit 1
-fi
+for f in evals/scenarios/*.json; do
+  slug=$(basename "$f" .json)
+  if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh "$slug"; then
+    echo "Expected failing fixture to fail: $slug"
+    exit 1
+  fi
+done
 
 echo "Eval suite regression checks passed"

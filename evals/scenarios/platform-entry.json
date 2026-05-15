@@ -1,0 +1,7 @@
+{
+  "id": "platform-entry",
+  "name": "四平台入口一致",
+  "type": "v2",
+  "prompt": "检查四平台入口是否都指向 2.0.0 flow。",
+  "coverageBaseline": false
+}

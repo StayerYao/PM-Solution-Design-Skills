@@ -1,0 +1,1 @@
+使用 pm-solution-design。复杂度：简单。Claude、Codex、Cursor、Gemini 四个平台入口一致，均指向 SKILL.md 和 references/flow.md。G1/G2/G3/G4 门禁说明一致。本场景无需 PRD 输出范围，但平台入口保留 flow.md 加载底线。验收标准 P0：四平台触发协议一致。

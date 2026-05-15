@@ -1,0 +1,1 @@
+使用 pm-solution-design。复杂度：简单。Claude 和 Codex 可用，继续使用 detail-overview 和 gate-1-problem-clarity。验收标准 P0。

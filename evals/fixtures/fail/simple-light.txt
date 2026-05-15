@@ -1,0 +1,1 @@
+使用 pm-solution-design。复杂度：简单。G1/G2/G3/G4。需要 Mermaid 完整状态机和规则引擎。验收标准 P0。
