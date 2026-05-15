@@ -1,0 +1,7 @@
+{
+  "id": "fuzzy-g1-stop",
+  "name": "模糊需求必须停在 G1",
+  "type": "v2",
+  "prompt": "帮我写一个消息通知功能 PRD。",
+  "coverageBaseline": false
+}

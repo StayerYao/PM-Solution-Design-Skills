@@ -1,0 +1,7 @@
+{
+  "id": "brief-mode",
+  "name": "方案 Brief 不得伪装成完整 PRD",
+  "type": "v2",
+  "prompt": "先给我一个方案 Brief，评估会员积分功能是否值得做。",
+  "coverageBaseline": false
+}

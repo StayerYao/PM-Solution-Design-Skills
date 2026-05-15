@@ -1,0 +1,7 @@
+{
+  "id": "ui-interaction",
+  "name": "界面需求必须覆盖交互响应",
+  "type": "v2",
+  "prompt": "做一个后台批量导入页面 PRD，需要说明用户操作。",
+  "coverageBaseline": true
+}

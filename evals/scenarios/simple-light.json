@@ -1,0 +1,7 @@
+{
+  "id": "simple-light",
+  "name": "简单需求不能过度流程化",
+  "type": "v2",
+  "prompt": "登录页加一个记住我复选框。",
+  "coverageBaseline": false
+}
