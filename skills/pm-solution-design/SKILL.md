@@ -33,6 +33,48 @@ description: "Use when starting a new feature or product initiative that needs a
 
 > 中等/复杂时，先 Read `references/detail-overview.md`（角色设定与门禁总览），再按当前门禁 Read 对应文件。
 
+## 执行强度分级
+
+根据用户目标和需求复杂度选择执行强度，默认采用**标准模式**。
+
+| 模式 | 触发条件 | 执行动作 |
+|------|----------|----------|
+| **快速草稿** | 用户明确要求“先给草稿”“不要问问题直接输出”“跳过门禁” | 可输出草稿，但 MUST 声明“未完成完整 skill 门禁，不得视为最终 PRD”；不得声称门禁已通过 |
+| **标准模式** | 默认 PRD / 方案请求 | 复杂度初判 → 必须停顿的门禁先确认 → 门禁 2-4 按复杂度检查和修订 → 输出 PRD |
+| **严格模式** | 用户要求严格、需求中等/复杂且风险高、跨团队评审或正式交付 | 逐门禁留痕；每个门禁输出“通过依据 / 修订动作 / 遗留风险”；final 报告检查结果 |
+
+**禁止降级：** 未经用户明确要求，不得把标准模式降级为快速草稿。不得用“合理默认假设”“先补齐假设”替代必须确认的门禁。
+
+## Reference 加载协议
+
+1. 使用本 skill 时，必须先声明需求复杂度。
+2. 判定为中等/复杂时，MUST 先 Read `references/detail-overview.md`。
+3. 进入每个门禁前，MUST 按需 Read 对应文件：
+   - 门禁一：`references/gate-1-problem-clarity.md`
+   - 灵感碰撞：`references/ideation.md`，重大取舍同时 Read `references/trade-off-model.md`
+   - 精致打磨：`references/refinement.md`
+   - 门禁二：`references/gate-2-solution-closure.md`
+   - 门禁三：`references/gate-3-executable-contract.md`
+   - 门禁四：`references/gate-4-cost-assessment.md`
+   - 输出格式：`prd-template.md` 和 `references/output-format.md`
+   - 品质审查：`references/quality-review.md`
+4. 未加载必需 reference，不得声明已按完整 skill 流程完成。
+
+## 门禁停顿策略
+
+并非所有门禁都必须向用户停顿。停顿取决于问题是否只能由用户确认。
+
+| 环节 | 停顿策略 |
+|------|----------|
+| **门禁一：问题清晰** | MUST STOP：缺少问题定义、做/不做边界、成功指标或用户确认时，只能输出复述、未通过项和待确认问题，MUST NOT 输出 PRD 正文 |
+| **灵感碰撞** | SHOULD ASK：标准/严格模式下邀请 PM 输入 1-3 个灵感；用户跳过时记录“未输入灵感”，继续下一步 |
+| **精致打磨** | MAY SELF-REVISE：状态、一致性、克制问题可自行修订；若影响产品取舍则停顿确认 |
+| **门禁二：方案闭环** | CONDITIONAL STOP：业务规则、关键路径、用户影响、权限边界无法判断时停顿；普通遗漏路径、五态缺口、边界说明可自行补齐 |
+| **门禁三：可执行契约** | MAY SELF-REVISE：主观词、验收不可测、格式不清时自行改为可度量表达；若需求含义不明或验收口径需业务确认则停顿 |
+| **门禁四：代价评估** | USUALLY CONTINUE：补齐模块清单和评估框架；范围边界或重大风险无法判断时停顿 |
+
+**门禁一特例：** 即使用户说“不要问问题，直接输出完整 PRD”，只要门禁一缺少确认，标准模式下仍 MUST STOP。只有用户明确要求“跳过门禁生成草稿”时，才可进入快速草稿，并必须声明门禁未完成。
+
 ## 门禁全景
 
 ```
@@ -130,7 +172,16 @@ description: "Use when starting a new feature or product initiative that needs a
 
 ## 输出
 
-所有门禁通过后，按 `prd-template.md` 格式输出 PRD。完整格式规范（callout 约定、标题层级、需求级别标注）见 `references/output-format.md`，常见合理化借口见 `references/anti-patterns.md`。
+所有必须停顿的门禁通过、可自行修订项完成后，按 `prd-template.md` 格式输出 PRD。完整格式规范（callout 约定、标题层级、需求级别标注）见 `references/output-format.md`，常见合理化借口见 `references/anti-patterns.md`。
+
+输出前 MUST 执行以下检查，并在 final 中报告结果：
+
+1. 占位符检查：`TBD` / `TODO` / `待确认` / `placeholder` 是否仍存在；若存在，必须标注为待确认项，不能声明最终完成。
+2. 术语一致性检查：同一对象、状态、角色是否命名一致。
+3. 主观词检查：验收标准不得包含“体验好”“快速”“方便”“高效”“流畅”“友好”等不可测表述。
+4. P0/P1/P2 优先级检查：关键测试场景或需求项必须有优先级，且优先级含义符合 `references/output-format.md`。
+
+快速草稿可以跳过完整 PRD 品质审查，但 MUST 声明跳过原因和未完成门禁。
 
 example 参考 `example-prd.md`，评估场景见 `references/evaluations.md`。
 

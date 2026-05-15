@@ -25,6 +25,8 @@ PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V1
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V2
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh V3
 PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh B2
+PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P5
+PM_EVAL_FIXTURE_DIR=evals/fixtures/pass ./evals/run-eval.sh P6
 
 if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P4; then
   echo "Expected failing P4 fixture to fail"
@@ -48,6 +50,16 @@ fi
 
 if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh B2; then
   echo "Expected failing B2 fixture to fail"
+  exit 1
+fi
+
+if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P5; then
+  echo "Expected failing P5 fixture to fail"
+  exit 1
+fi
+
+if PM_EVAL_FIXTURE_DIR=evals/fixtures/fail ./evals/run-eval.sh P6; then
+  echo "Expected failing P6 fixture to fail"
   exit 1
 fi
 
