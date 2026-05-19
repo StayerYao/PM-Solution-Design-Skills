@@ -2,7 +2,7 @@
   "name": "pm-solution-design",
   "displayName": "PM Solution Design",
   "description": "Use when starting a product initiative, writing or reviewing a PRD, clarifying ambiguous requirements, planning a feature, or comparing product trade-offs.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "Stayer",
     "email": "stayer@users.noreply.github.com"

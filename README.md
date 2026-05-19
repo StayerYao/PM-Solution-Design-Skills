@@ -1,6 +1,6 @@
 # PM Solution Design Skills
 
-`pm-solution-design` 是面向产品方案和 PRD 写作的 Skill。2.0.0 以流程引擎为核心：`SKILL.md` 负责触发和硬约束，`references/flow.md` 负责状态机和门禁流转。
+`pm-solution-design` 是面向产品方案和 PRD 写作的 Skill。2.x 以流程引擎为核心：`SKILL.md` 负责触发和硬约束，`references/flow.md` 负责状态机和门禁流转。
 
 ## 适用场景
 
@@ -11,7 +11,7 @@
 
 不用于纯代码实现、bug 修复、接口设计、数据库设计或具体排期估算。
 
-## 2.0.0 架构
+## 2.x 架构
 
 ```text
 skills/pm-solution-design/
