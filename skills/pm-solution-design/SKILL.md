@@ -48,3 +48,5 @@ description: Use when starting a product initiative, writing or reviewing a PRD,
 - G1-G4 门禁状态。
 - 未确认项。
 - 是否完成占位符、术语一致性、主观词、技术越界和优先级检查。
+
+如果不确定当前处于流程哪个状态，必须重新读取 `references/flow.md` 确认，不得凭记忆继续。

@@ -1,6 +1,6 @@
 {
   "name": "pm-solution-design",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Use when starting a product initiative, writing or reviewing a PRD, clarifying ambiguous requirements, planning a feature, or comparing product trade-offs.",
   "author": {
     "name": "Stayer",
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "PM Solution Design",
     "shortDescription": "PRD and product solution design driven by a flow engine",
-    "longDescription": "Use pm-solution-design 2.0.0 to clarify product problems, choose output scope, pass G1-G4 gates, and produce a PRD, solution brief, or explicit draft without leaking API, data model, or estimate details.",
+    "longDescription": "Use pm-solution-design 2.0.1 to clarify product problems, choose output scope, pass G1-G4 gates, and produce a PRD, solution brief, or explicit draft without leaking API, data model, or estimate details.",
     "developerName": "Stayer",
     "category": "Productivity",
     "capabilities": [
